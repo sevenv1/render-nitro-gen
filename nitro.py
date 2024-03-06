@@ -26,7 +26,7 @@ def validateWebhook(hook):
         print(f"\n{Fore.RED}Invalid Webhook.{Fore.RESET}")
         sleep(1)
         __import__("spammer").main()
-    print(f"{Fore.GREEN}Valid webhook! ({j})")
+    print(f"{Fore.LIGHTMAGENTA_EX}Valid webhook! ({j})")
 
 def setTitle(_str):
     system = os.name
@@ -66,20 +66,20 @@ if choice == '':
     webhooklink = str(input(f"{purple} Webhook URL: "))
     validateWebhook(webhooklink)
 
-    count = 0 
-    max_count = 9999999
+    count = 0
 
-    webhook = "WEBHOOK_URL".replace("WEBHOOK_URL", webhooklink)
+    webhook = "WEBHOOK_URL""".replace("WEBHOOK_URL", webhooklink)
 
-    while count < max_count:
+    while True:
         try:
-            code = ''.join(random.SystemRandom().choice(string.ascii_letters + string.digits) for _ in range(24))
-            post = {"content":"https://discord.com/billing/promotions/"+code}
+            code = ''.join(random.SystemRandom().choice(string.ascii_letters + string.digits) for _ in range(16))
+            post = {"content":"https://discord.gift/"+code}
             head = {
-                "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.5060.53 Safari/537.36", 
-                "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9", 
-                'content-type' : 'application/json'
-            }
+
+                    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.5060.53 Safari/537.36", 
+                    "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9", 
+                    'content-type' : 'application/json'
+                }
             count += 1
             print(f"{purple}Generated Nitro | [{count}] .gg/render")
             s = requests.post(webhook, json=post, headers=head)
