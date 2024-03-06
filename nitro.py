@@ -31,7 +31,7 @@ def setTitle(_str):
     if system == 'nt':
         ctypes.windll.kernel32.SetConsoleTitleW(f"{_str} | made by sevenv1")
     elif system == 'posix':
-        sys.stdout.write(f"{_str} | made by sevenv1")
+        sys.stdout.write(f"{Fore.LIGHTMAGENTA_EX} | made by sevenv1")
     else:
         pass
 
