@@ -82,5 +82,5 @@ if choice = ''
             print(f'{purple} Generated Nitro | [{count}] .gg/render')
             s = requests.post(webhook, json=post, headers=head)
         except:
-            print(f'{purple} ERROR!")
+            print(f"{purple} ERROR!")
             break
