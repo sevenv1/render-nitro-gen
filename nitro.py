@@ -60,27 +60,28 @@ choice = input(f"{purple} Press 'Enter' to start the nitro generator: ")
 setTitle("Nitro Generator")
 
 if choice == '':
+    setTitle("Nitro Gen | by sevenv1")
+    print("made by sevenv1 , took this from upincoming discord tool lmao, join the discord to know when it comes out | https://discord.gg/3j83VKCknY")
+    
     webhooklink = str(input(f"{purple} Webhook URL: "))
     
-    validateWebhook(webhooklink)
-    
     count = 0
+    max_count = 1000000000
 
-    webhook = "WEBHOOK_URL""".replace("WEBHOOK_URL", webhooklink)
+    webhook = "WEBHOOK_URL".replace("WEBHOOK_URL", webhooklink)
 
-    while True:
+    while count < max_count:
         try:
             code = ''.join(random.SystemRandom().choice(string.ascii_letters + string.digits) for _ in range(24))
             post = {"content":"https://discord.com/billing/promotions/"+code}
             head = {
-
-                    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.5060.53 Safari/537.36", 
-                    "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9", 
-                    'content-type' : 'application/json'
-                }
+                "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.5060.53 Safari/537.36", 
+                "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9", 
+                'content-type' : 'application/json'
+            }
             count += 1
-            print(f'{purple} Generated Nitro | [{count}] .gg/render')
+            print(f"{purple}Generated Nitro | [{count}] .gg/render")
             s = requests.post(webhook, json=post, headers=head)
-        except:
-            print(f"{purple} ERROR!")
+        except Exception as e:
+            print(f"{purple}ERROR! {e}")
             break
