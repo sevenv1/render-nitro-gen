@@ -3,6 +3,7 @@ import time
 import random
 import string
 import requests
+import colorama
 from colorama import Fore
 
 colorama.init(autoreset=True)
@@ -23,7 +24,7 @@ watermark = """
 """
 
 print(purple + watermark)
-print(f"{purple}[+] made by sevenv1")
+print(f"{purple}[$] made by sevenv1")
 
 choice = input(f"{purple} Press 'Enter' to start the nitro generator: ")
 
@@ -49,6 +50,9 @@ if choice == '':
             count += 1
             print(f"{purple}Generated Nitro | [{count}]")
             s = requests.post(webhook, json=post, headers=head)
-        except:
-            print(f"{purple}ERROR!")
+        except KeyboardInterrupt:
+            print(f"\n{purple}Exiting...")
+            break
+        except Exception as e:
+            print(f"{purple}ERROR! {e}")
             break
