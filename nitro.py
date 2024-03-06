@@ -1,20 +1,3 @@
-import subprocess
-
-def install_packages():
-    try:
-        subprocess.check_call(["pip", "install", "-r", "requirements.txt"])
-        print("Required packages installed successfully.")
-    except subprocess.CalledProcessError:
-        print("Failed to install required packages.")
-
-try:
-    import requests
-    import colorama
-except ImportError:
-    print("Required packages not found. Installing them...")
-    install_packages()
-
-
 import os
 import time
 import random
@@ -27,7 +10,18 @@ init(autoreset=True)
 def cls():
     os.system('cls')
 
+def setTitle(_str):
+    system = os.name
+    if system == 'nt':
+        ctypes.windll.kernel32.SetConsoleTitleW(f"{_str} | made by sevenv1")
+    elif system == 'posix':
+        sys.stdout.write(f"{_str} | made by sevenv1")
+    else:
+        pass
+
 purple = Fore.LIGHTMAGENTA_EX
+
+clearConsole()
 
 watermark = """
     ██████╗  ██████╗     ██╗██████╗ ███████╗███╗   ██╗██████╗ ███████╗██████╗ 
@@ -44,8 +38,8 @@ print(f"{purple}[+] made by sevenv1")
 choice = input(f"{purple} Press 'Enter' to start the nitro generator: ")
 
 if choice == '':
-    setTitle("Nitro Gen | by sevenv1")
-    print("made by sevenv1 , took this from upincoming discord tool lmao, join the discord to know when it comes out | https://discord.gg/3j83VKCknY")
+    setTitle("Nitro Gen ")
+    print("join the discord im gonna release a discord tool soon | https://discord.gg/3j83VKCknY")
     
     webhooklink = str(input(f"{purple} Webhook URL: "))
     
