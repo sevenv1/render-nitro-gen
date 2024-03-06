@@ -5,6 +5,12 @@ import string
 import requests
 from colorama import Fore
 
+colorama.init(autoreset=True)
+
+
+def cls():
+    os.system('cls')
+
 purple = Fore.LIGHTMAGENTA_EX
 
 watermark = """
