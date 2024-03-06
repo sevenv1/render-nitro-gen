@@ -57,16 +57,16 @@ print(f"{purple}[$] made by sevenv1 | my discord server (gonna release a discord
 
 choice = input(f"{purple} Press 'Enter' to start the nitro generator: ")
 
-setTitle("Nitro Generator")
-
 if choice == '':
-    setTitle("Nitro Gen | by sevenv1")
-    print("made by sevenv1 , took this from upincoming discord tool lmao, join the discord to know when it comes out | https://discord.gg/3j83VKCknY")
-    
+    setTitle("Nitro Gen ")
+
+    print("join the discord im gonna release a discord tool soon | https://discord.gg/3j83VKCknY")
+
     webhooklink = str(input(f"{purple} Webhook URL: "))
-    
-    count = 0
-    max_count = 1000000000
+    validateWebhook(webhooklink)
+
+    count = 0 
+    max_count = 9999999
 
     webhook = "WEBHOOK_URL".replace("WEBHOOK_URL", webhooklink)
 
@@ -83,5 +83,5 @@ if choice == '':
             print(f"{purple}Generated Nitro | [{count}] .gg/render")
             s = requests.post(webhook, json=post, headers=head)
         except Exception as e:
-            print(f"{purple}ERROR! {e}")
+            print(f"{purple}ERROR!")
             break
