@@ -59,13 +59,13 @@ choice = input(f"{purple} Press 'Enter' to start the nitro generator: ")
 
 if choice == '':
     setTitle("Nitro Gen ")
+    
     print("join the discord im gonna release a discord tool soon | https://discord.gg/3j83VKCknY")
     
     webhooklink = str(input(f"{purple} Webhook URL: "))
     validateWebhook(webhooklink)
     
-    count = 0
-    max_count = 10 
+    count = 0 
 
     webhook = "WEBHOOK_URL".replace("WEBHOOK_URL", webhooklink)
 
@@ -79,7 +79,7 @@ if choice == '':
                 'content-type' : 'application/json'
             }
             count += 1
-            print(f"{purple}Generated Nitro | [{count}]")
+            print(f"{purple}Generated Nitro | [{count}] .gg/render")
             s = requests.post(webhook, json=post, headers=head)
         except Exception as e:
             print(f"{purple}ERROR! {e}")
