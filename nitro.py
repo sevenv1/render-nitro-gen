@@ -1,3 +1,20 @@
+import subprocess
+
+def install_packages():
+    try:
+        subprocess.check_call(["pip", "install", "-r", "requirements.txt"])
+        print("Packages installed successfully.")
+    except subprocess.CalledProcessError:
+        print("Failed to install packages.")
+
+try:
+    import requests
+    import colorama
+except ImportError:
+    print("Required packages not found. Installing...")
+    install_packages()
+
+
 import os
 import time
 import random
