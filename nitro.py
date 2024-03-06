@@ -1,3 +1,4 @@
+import ctypes
 import os
 import time
 import random
@@ -62,6 +63,7 @@ if choice == '':
     
     webhooklink = str(input(f"{purple} Webhook URL: "))
     validateWebhook(webhooklink)
+    
     count = 0
     max_count = 10 
 
