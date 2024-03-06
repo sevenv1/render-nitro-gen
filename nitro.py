@@ -1,4 +1,24 @@
+import os
+import time
 
+import colorama
+from colorama import Fore
+
+purple = Fore.LIGHTMAGENTA_EX
+
+watermark = """
+    ██████╗  ██████╗     ██╗██████╗ ███████╗███╗   ██╗██████╗ ███████╗██████╗ 
+   ██╔════╝ ██╔════╝    ██╔╝██╔══██╗██╔════╝████╗  ██║██╔══██╗██╔════╝██╔══██╗
+   ██║  ███╗██║  ███╗  ██╔╝ ██████╔╝█████╗  ██╔██╗ ██║██║  ██║█████╗  ██████╔╝
+   ██║   ██║██║   ██║ ██╔╝  ██╔══██╗██╔══╝  ██║╚██╗██║██║  ██║██╔══╝  ██╔══██╗
+██╗╚██████╔╝╚██████╔╝██╔╝   ██║  ██║███████╗██║ ╚████║██████╔╝███████╗██║  ██║
+╚═╝ ╚═════╝  ╚═════╝ ╚═╝    ╚═╝  ╚═╝╚══════╝╚═╝  ╚═══╝╚═════╝ ╚══════╝╚═╝  ╚═╝
+"""
+
+print(purple + watermark)
+print(f"{purple}[+] made by sevenv1")
+
+choice = input(f"{purple}choice: ")
 
 #  nitro gen dont be a fag and skid it
 if choice == '1':
@@ -22,8 +42,8 @@ if choice == '1':
                     'content-type' : 'application/json'
                 }
             count += 1
-            print(f'\n(\x1b[31m$\x1b[95m\x1b[37m) Generated Nitro | [{count}]')
+            print(f"{purple}Generated Nitro | [{count}]")
             s = requests.post(webhook, json=post, headers=head)
         except:
-            print(f"\n(\x1b[31m$\x1b[95m\x1b[37m) ERROR!")
+            print(f"{purple}ERROR!")
             break
