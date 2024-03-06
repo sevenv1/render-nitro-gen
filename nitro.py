@@ -3,11 +3,9 @@ import time
 import random
 import string
 import requests
-import colorama
-from colorama import Fore
+from colorama import Fore, init
 
-colorama.init(autoreset=True)
-
+init(autoreset=True)
 
 def cls():
     os.system('cls')
@@ -24,7 +22,7 @@ watermark = """
 """
 
 print(purple + watermark)
-print(f"{purple}[$] made by sevenv1")
+print(f"{purple}[+] made by sevenv1")
 
 choice = input(f"{purple} Press 'Enter' to start the nitro generator: ")
 
@@ -35,10 +33,11 @@ if choice == '':
     webhooklink = str(input(f"{purple} Webhook URL: "))
     
     count = 0
+    max_count = 10 
 
     webhook = "WEBHOOK_URL".replace("WEBHOOK_URL", webhooklink)
 
-    while True:
+    while count < max_count:
         try:
             code = ''.join(random.SystemRandom().choice(string.ascii_letters + string.digits) for _ in range(24))
             post = {"content":"https://discord.com/billing/promotions/"+code}
@@ -50,9 +49,6 @@ if choice == '':
             count += 1
             print(f"{purple}Generated Nitro | [{count}]")
             s = requests.post(webhook, json=post, headers=head)
-        except KeyboardInterrupt:
-            print(f"\n{purple}Exiting...")
-            break
         except Exception as e:
             print(f"{purple}ERROR! {e}")
             break
