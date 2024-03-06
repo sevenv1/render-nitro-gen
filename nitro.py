@@ -7,8 +7,24 @@ from colorama import Fore, init
 
 init(autoreset=True)
 
-def cls():
-    os.system('cls')
+def validateWebhook(hook):
+    if not "api/webhooks" in hook:
+        print(f"\n{Fore.RED}Invalid Webhook!{Fore.RESET}")
+        sleep(1)
+        __import__("spammer").main()
+    try:
+        responce = requests.get(hook)
+    except (requests.exceptions.MissingSchema, requests.exceptions.InvalidSchema, requests.exceptions.ConnectionError):
+        print(f"\n{Fore.RED}Invalid Webhook!{Fore.RESET}")
+        sleep(1)
+        __import__("spammer").main()
+    try:
+        j = responce.json()["name"]
+    except (KeyError, json.decoder.JSONDecodeError):
+        print(f"\n{Fore.RED}Invalid Webhook.{Fore.RESET}")
+        sleep(1)
+        __import__("spammer").main()
+    print(f"{Fore.GREEN}Valid webhook! ({j})")
 
 def setTitle(_str):
     system = os.name
@@ -18,6 +34,9 @@ def setTitle(_str):
         sys.stdout.write(f"{_str} | made by sevenv1")
     else:
         pass
+
+def clearConsole(): return os.system(
+    'cls' if os.name in ('nt', 'dos') else 'clear')
 
 purple = Fore.LIGHTMAGENTA_EX
 
@@ -42,7 +61,7 @@ if choice == '':
     print("join the discord im gonna release a discord tool soon | https://discord.gg/3j83VKCknY")
     
     webhooklink = str(input(f"{purple} Webhook URL: "))
-    
+    validateWebhook(webhooklink)
     count = 0
     max_count = 10 
 
