@@ -59,7 +59,7 @@ choice = input(f"{purple} Press 'Enter' to start the nitro generator: ")
 
 setTitle("Nitro Generator")
 
-if choice == ''
+if choice == '':
     webhooklink = str(input(f"{purple} Webhook URL: "))
     
     validateWebhook(webhooklink)
